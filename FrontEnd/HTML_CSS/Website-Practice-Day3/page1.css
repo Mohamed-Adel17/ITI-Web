@@ -1,0 +1,295 @@
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+
+    background-image: url(Images/first_bg.png);
+    width: 100vw;
+    height: 800px;
+    list-style-type: none;
+    background-size: cover;
+    background-position: center;
+
+    width: 100vw;
+    height: 100vh;
+}
+
+
+
+ul.nav li {
+
+    display: inline-block;
+    margin: 20px;
+    margin-top: 35px;
+    font-size: 16px;
+    color: #f4f4f4;
+}
+
+ul.nav li:hover {
+
+    cursor: pointer;
+    border-bottom: 1px solid white;
+}
+
+ul.nav li:first-child {
+
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 150px;
+    margin-left: 50px;
+
+}
+
+ul.nav li:last-child {
+
+    font-size: 21px;
+    font-weight: bold;
+
+    margin-left: 300px;
+
+}
+
+ul.nav li span {
+    font-size: 11px;
+}
+
+.main
+{
+    margin-left:25px;
+}
+.main #first_cont {
+    
+    font-size: 35px;
+    width: 780px;
+    font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+
+    text-align: left;
+    padding-left: 80px;
+    color: #252422;
+}
+
+.main #second_cont {
+    font-size: 210px;
+
+    font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    text-align: left;
+    color: #252422;
+
+}
+
+.seeButton {
+    font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    border: 2px solid black;
+    padding: 15px;
+    border-radius: 25%;
+    margin-left: 80px;
+}
+
+.seeButton:hover {
+    border: 2px solid black;
+    cursor: pointer;
+    background-color: #252422;
+    color: #f9cdcd;
+
+}
+
+.part2 {
+    margin-left: 100px;
+    margin-top: 80px;
+
+}
+
+.part2 img {
+
+    font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    width: 400px;
+    height: 600px;
+    margin: 10px;
+
+
+}
+
+.part3 span {
+    font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    display: inline-block;
+    margin-left: 110px;
+    color: #252422;
+
+
+}
+
+
+#s2 {
+    margin-left: 190px;
+}
+
+#s3 {
+    margin-left: 50px;
+}
+
+.line {
+    border: 0;
+    background-color: gray;
+    height: 1px;
+    width: 83%;
+    padding-left: 20px;
+}
+
+.lineInfo {
+    font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    color: gray;
+    margin-left: 120px;
+    font-size: 14px;
+}
+
+span.sec {
+    margin-left: 400px;
+}
+
+span.dot {
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    margin-left: 800px;
+    background-color: #252422;
+    display: inline-block;
+}
+
+.part4 {
+
+    margin-left: 110px;
+    margin-top: 100px;
+    color: #252422;
+    font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+
+.part4 h1 {
+    margin-top: 50px;
+    font-size: 35px;
+
+}
+
+.part4 span {
+    margin-top: 60px;
+    display: inline-block;
+    font-size: 32px;
+}
+
+.no1 {
+
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+
+.no2 {
+    margin-left: 330px;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 900;
+
+}
+
+.no3 {
+    margin-left: 340px;
+
+
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: bold;
+
+}
+
+.part4_par div {
+    display: inline-block;
+    color: #252422;
+}
+
+.part4_par h1 {
+    margin-top: 50px;
+    font-size: 17px;
+
+}
+
+.par2 {
+
+    margin-left: 150px;
+    vertical-align: top
+}
+
+.par3 {
+    margin-left: 120px;
+}
+
+
+.part5
+{
+    margin-top: 50px;
+    background-color: #252422;
+    color:#f9cdcd ;
+    
+}
+.par h1
+{
+    font-size: 80;
+}
+.part5 div
+{
+    text-transform: uppercase;
+    padding-top: 20px;
+    padding-left: 40px;
+    margin-top: 10px;
+    vertical-align: top; 
+    display:inline-block;
+    /* margin-top: 100px; */
+}
+.part5 img
+{
+    width:600px;
+  
+    margin-left: 120px;
+   
+}
+
+.part5 button
+{
+    background-color: #252422;
+    color: #f4f4f4;
+    font-size: 10;
+    margin-top: 40px;
+    margin-left: 50px;
+    border:1px solid white;
+}
+.part5 button:hover
+{
+    background-color: #f4f4f4;
+    color: #252422;
+    border:3px solid #252422;
+}
+.lastpart
+{
+    margin-top: 50px;
+}
+.lastpart h1
+{
+ font-size: 40px;
+ margin-top: 0;
+}
+
+.lasttxt
+{
+    display: inline-block;
+    margin-left: 50px;
+
+}
+
+
+.footer
+{
+    color: #252422;
+    font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-top: 30px;
+    padding-bottom: 80px;
+}
