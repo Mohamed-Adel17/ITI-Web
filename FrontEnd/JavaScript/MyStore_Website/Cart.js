@@ -5,6 +5,21 @@ async function processCartItems() {
   if (productStored.length == 0) {
     contentDiv.innerHTML = `<p>Your cart is empty.</p>`;
     return;
+  } else {
+    contentDiv.innerHTML = `<div class="container"><table class="table table-bordered table-striped ">
+      <thead>
+        <tr class="head-row">
+          <th>Product</th>
+          <th>Price</th>
+          <th>Quantity</th>
+  
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="cart-items"></tbody>
+    </table>
+      <div class="total-price d-flex justify-content-end mt-6"></div></div>
+    `;
   }
 
   let rawProducts = await fetch('https://fakestoreapi.com/products');
@@ -20,7 +35,7 @@ async function processCartItems() {
   }
 
   updateCartContent(cartProducts);
-
+  updateTotalPrice(cartProducts);
   handleAddReduceClicks(cartProducts);
 }
 
@@ -28,6 +43,15 @@ function updateCartContent(cartProducts) {
   let content = displayCartProducts(cartProducts);
   const cartItemsBody = document.getElementById('cart-items');
   cartItemsBody.innerHTML = content;
+  handleEmptyCart();
+}
+
+function handleEmptyCart() {
+  let contentDiv = document.getElementsByClassName('cart-content')[0];
+  const length = (JSON.parse(localStorage.getItem('cart')) || []).length;
+  if (length == 0) {
+    contentDiv.innerHTML = `<p>Your cart is empty.</p>`;
+  }
 }
 
 function handleAddReduceClicks(cartProducts) {
@@ -43,8 +67,6 @@ function handleAddReduceClicks(cartProducts) {
       let prod = cartProducts.find(p => p.id == prdId);
       if (isAdd) {
         prod.amount++;
-        updateLocalStorage(prod);
-        updateCartContent(cartProducts);
       } else if (isReduce) {
         prod.amount--;
 
@@ -53,8 +75,6 @@ function handleAddReduceClicks(cartProducts) {
             return el.id != prod.id;
           });
         }
-        updateLocalStorage(prod);
-        updateCartContent(cartProducts);
       } else {
         prod.amount = 0;
 
@@ -64,10 +84,22 @@ function handleAddReduceClicks(cartProducts) {
       }
       updateLocalStorage(prod);
       updateCartContent(cartProducts);
+      updateTotalPrice(cartProducts);
     }
   });
 }
-
+function updateTotalPrice(cartProducts) {
+  let priceDiv = document.querySelector('.total-price');
+  let price = 0;
+  if (cartProducts.length != 0) {
+    cartProducts.forEach(el => {
+      price += el.price * el.amount;
+    });
+    priceDiv.innerHTML = `
+    Total Price :$${price.toFixed(2)}
+    `;
+  }
+}
 function updateLocalStorage(prod) {
   let cart = JSON.parse(localStorage.getItem('cart'));
   if (prod.amount == 0) {
@@ -87,19 +119,20 @@ function displayCartProducts(products) {
   products.forEach(product => {
     content += `
         <tr data-id="${product.id}">
-                <td class="card-title "><img class=" img-left" src="${
-                  product.image
-                }"/>
+                <td class="card-title ">
+                <img class=" img-left" src="${product.image}"/>
                 ${truncateTitle(product.title, 45)}</td>
-                <td>$${(product.price * product.amount).toFixed(2)}</td>
-                <td>
+                <td class="text-center align-middle">
+                $${(product.price * product.amount).toFixed(2)}
+                </td>
+                <td class="text-center align-middle">
                     <button class="btn btn-sm btn-outline-secondary reduce-quantity">-</button>
                     <span>${product.amount}</span>
                     <button class="btn btn-sm btn-outline-secondary add-quantity">+</button>
                 </td>
                 
-                <td>
-                    <button class="btn btn-sm btn-danger remove-item">Remove</button>
+                <td class="text-center align-middle ">
+                    <button class="btn btn-sm btn-danger remove-item ">Remove</button>
                 </td>
             </tr>
     `;

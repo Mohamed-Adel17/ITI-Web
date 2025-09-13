@@ -45,6 +45,22 @@ function createColumn(product) {
 
 processDataFromAPI('https://fakestoreapi.com/products');
 
+function showToast(message, duration = 1500) {
+  let toast = document.getElementById('toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'toast';
+    toast.className = 'toast';
+    document.body.appendChild(toast);
+  }
+  toast.textContent = message;
+
+  toast.classList.add('show');
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, duration);
+}
+
 let handleButtonClicks = function () {
   let buttonsClicked = document.querySelectorAll('.add-to-cart');
   buttonsClicked.forEach(button => {
@@ -62,6 +78,7 @@ let handleButtonClicks = function () {
 
       localStorage.setItem('cart', JSON.stringify(cart));
       window.location.href = 'Cart.html';
+      // showToast('✅ Added to cart');
     });
   });
 };
